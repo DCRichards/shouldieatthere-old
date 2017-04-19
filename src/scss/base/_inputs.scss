@@ -1,0 +1,13 @@
+.c-input-text {
+  background: none;
+  border: none;
+  border-bottom: 3px solid $charcoal;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &::placeholder {
+    color: $ash;
+  }
+}
