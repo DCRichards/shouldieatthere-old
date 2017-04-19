@@ -1,20 +1,47 @@
 body {
+  color: $black;
+  background: $white;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (max-width: $break-sm) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+a {
+  color: $charcoal;
 }
 
 .u-inline {
   display: inline;
 }
 
+.u-badge {
+  background: $charcoal;
+  color: $white;
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+.u-badge-red {
+  background: $cherry;
+}
+
+.u-badge-amber {
+  background: $edam;
+}
+
+.u-badge-green {
+  background: $evergreen;
+}
+
+.u-badge-grey {
+  background: $ash;
+}
+
 .u-color-red {
   color: $cherry;
-}
-
-.u-color-amber {
-  color: $edam;
-}
-
-.u-color-green {
-  color: $evergreen;
 }

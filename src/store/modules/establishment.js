@@ -5,12 +5,13 @@ import router from '../../router';
 /* eslint no-param-reassign: 0 */
 export default {
   state: {
-    data: {},
+    data: null,
+    query: '',
   },
 
   actions: {
     retrieveEstablishment({ commit, state }, { name, location }) {
-      commit(types.ESTABLISHMENT_RETRIEVE);
+      commit(types.ESTABLISHMENT_RETRIEVE, name);
 
       api.getEstablishment(name, location)
         .then((response) => {
@@ -24,8 +25,8 @@ export default {
   },
 
   mutations: {
-    [types.ESTABLISHMENT_RETRIEVE]() {
-      // TODO: handle errors.
+    [types.ESTABLISHMENT_RETRIEVE](state, query) {
+      state.query = query;
     },
 
     [types.ESTABLISHMENT_RECIEVE](state, establishment) {

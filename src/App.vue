@@ -1,11 +1,17 @@
 <template>
   <div id="app" class="c-app">
     <router-view></router-view>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
+import AppFooter from './components/AppFooter';
+
 export default {
+  components: {
+    AppFooter,
+  },
   name: 'app',
 };
 </script>
@@ -15,7 +21,6 @@ export default {
 @import './scss/base/main';
 
 .c-app {
-  color: $charcoal;
   font-family: $helvetica;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div class="c-index">
     <div class="c-index__content">
-      <h1>Should I get a Kebab at</h1>
-      <input class="c-input-text" v-model="name" type="text" size="10" placeholder="Ali's" id="name"/>
+      <h1>I'm hungry, should I eat at</h1>
+      <input class="c-input-text" v-model="name" type="text" :size="name.length || 10" placeholder="Ali's" id="name"/>
       <h1 class="u-inline">in</h1>
-      <input class="c-input-text" v-model="location" v-on:keyup.enter="submit" type="text" size="15" placeholder="Portsmouth" id="location"/>
+      <input class="c-input-text" v-model="location" v-on:keyup.enter="submit" type="text" :size="location.length || 15" placeholder="Portsmouth" id="location"/>
       <h1 class="u-inline">?</h1>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
 
 .c-index {
   display: table;
-  min-height: 100vh;
+  min-height: 95vh;
   width: 100%;
 }
 
@@ -46,9 +46,13 @@ export default {
 }
 
 .c-input-text {
-  color: $kebab;
+  color: $ash;
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+  
+  @media screen and (max-width: $break-sm) {
+    font-size: 28px;
+  }
 }
 </style>

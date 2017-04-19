@@ -1,8 +1,8 @@
 {
-  "name": "shouldikebab.com",
+  "name": "shouldieatthere.com",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "DCRichards <DCRichards@live.co.uk>",
+  "description": "A simple checker for food hygiene ratings.",
+  "author": "DCRichards",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
