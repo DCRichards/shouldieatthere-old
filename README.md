@@ -4,6 +4,9 @@
 
 Written as an exploration of [vue.js](https://vuejs.org/).
 
+![Home Screen](./screenshots/1.png)
+![Establishment Screen](./screenshots/2.png)
+
 ## Build Setup
 
 ``` bash
