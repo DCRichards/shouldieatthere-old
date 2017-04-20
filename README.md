@@ -1,4 +1,8 @@
-# shouldikebab
+# shouldieatthere.com
+
+🍽 Check the food hygiene rating of your favourite establishments.
+
+Written as an exploration of [vue.js](https://vuejs.org/).
 
 ## Build Setup
 
