@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="c-app">
     <router-view></router-view>
+    <AppFooter></AppFooter>
   </div>
 </template>
 

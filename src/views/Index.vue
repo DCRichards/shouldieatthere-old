@@ -35,7 +35,7 @@ export default {
 
 .c-index {
   display: table;
-  min-height: 95vh;
+  min-height: 100vh;
   width: 100%;
 }
 

@@ -123,12 +123,13 @@ h4 {
 
 .c-establishment {
   display: table;
-  min-height: 95vh;
+  min-height: 100vh;
   width: 100%;
 }
 
 .c-establishment__content, .c-establishment__error {
   display: table-cell;
+  padding: 10px;
   text-align: center;
   vertical-align: middle;
 }
