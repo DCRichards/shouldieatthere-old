@@ -5,8 +5,10 @@ body {
   padding: 0;
 }
 
-@media screen and (max-width: $break-sm) {
-  h1 {
+h1 {
+  font-size: 40px;
+t
+  @media screen and (max-width: $break-sm) {
     font-size: 24px;
   }
 }

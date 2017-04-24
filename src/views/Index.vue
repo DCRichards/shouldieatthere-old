@@ -41,18 +41,19 @@ export default {
 
 .c-index__content {
   display: table-cell;
+  padding: 10px;
   text-align: center;
   vertical-align: middle;
 }
 
 .c-input-text {
   color: $ash;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   
   @media screen and (max-width: $break-sm) {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 </style>
