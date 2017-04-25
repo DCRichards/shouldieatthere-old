@@ -24,7 +24,7 @@ export default {
       const name = this.name;
       const location = this.location;
 
-      this.$store.dispatch('retrieveEstablishment', { name, location });
+      this.$store.dispatch('findEstablishments', { name, location });
     },
   },
 };

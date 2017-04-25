@@ -12,8 +12,9 @@ export default new Router({
       component: Index,
     },
     {
-      path: '/establishment',
+      path: '/establishment/:id',
       component: Establishment,
     },
   ],
+  mode: 'history',
 });

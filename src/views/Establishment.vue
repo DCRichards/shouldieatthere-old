@@ -3,19 +3,13 @@
     <div v-if="establishment" class="c-establishment__content">
       <h1>{{ establishment.BusinessName }}</h1>
       <h4><a :href="map">{{ address }}</a></h4>
-      <h1 :class="'u-badge u-badge-' + ratingColor">Hygiene Rating: {{ establishment.RatingValue }}</h1>
+      <h1 :class="'u-badge u-badge-' + ratingColor">Hygiene Rating: {{ rating }}</h1>
       <h1>{{ ratingMessage }}</h1>
-    </div>
-    <div v-else class="c-establishment__error">
-      <h1>{{ search }}?</h1>
-      <h3>Sorry, we couldn't find anything matching that name.</h3>
     </div>
   </div>
 </template>
 
 <script>
-import router from '../router';
-
 export default {
   computed: {
     address() {
@@ -48,6 +42,11 @@ export default {
       const { latitude, longitude } = this.$store.state.establishment.data.geocode;
 
       return `https://maps.google.com/?q=${latitude},${longitude}`;
+    },
+    rating() {
+      const { RatingValue } = this.$store.state.establishment.data;
+
+      return !isNaN(RatingValue) ? RatingValue : 'Unknown';
     },
     ratingColor() {
       const { RatingValue } = this.$store.state.establishment.data;
@@ -95,10 +94,11 @@ export default {
   },
 
   created() {
-    if (!this.$store.state.establishment.data) {
-      // Redirect home on refresh.
-      router.push('/');
+    if (this.$store.state.establishment.data) {
+      return;
     }
+
+    this.$store.dispatch('getEstablishment', { id: this.$route.params.id });
   },
 };
 </script>
@@ -127,7 +127,7 @@ h4 {
   width: 100%;
 }
 
-.c-establishment__content, .c-establishment__error {
+.c-establishment__content {
   display: table-cell;
   padding: 10px;
   text-align: center;

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+    command: dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./build:/usr/src/app/build
+      - ./config:/usr/src/app/config
+      - ./public:/usr/src/app/public
+      - ./src:/usr/src/app/src
+      - ./package.json:/usr/src/app/package.json
