@@ -123,7 +123,7 @@ h4 {
 
 .c-establishment {
   display: table;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
 }
 
