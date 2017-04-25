@@ -1,7 +1,7 @@
 {
-  "name": "shouldieatthere.com",
+  "name": "shouldieatthere.co.uk",
   "version": "1.0.0",
-  "description": "A simple checker for food hygiene ratings.",
+  "description": "🍽 Check the food hygiene status of your favourite establishments.",
   "author": "DCRichards",
   "private": true,
   "scripts": {
