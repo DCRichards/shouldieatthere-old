@@ -1,6 +1,6 @@
-# shouldieatthere.com
+# [shouldieatthere.co.uk](http://shouldieatthere.co.uk/)
 
-🍽 Check the food hygiene rating of your favourite establishments.
+🍽 Check the food hygiene rating of your favourite establishments. 
 
 Written as an exploration of [vue.js](https://vuejs.org/).
 
