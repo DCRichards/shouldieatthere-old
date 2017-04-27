@@ -7,6 +7,7 @@ export default {
   state: {
     data: null,
     query: '',
+    error: null,
   },
 
   actions: {
@@ -25,7 +26,9 @@ export default {
 
           return router.push(`/establishment/${establishments[0].FHRSID}`);
         })
-        .catch(() => router.push('/'));
+        .catch((error) => {
+          commit(types.ESTABLISHMENT_ERROR, error);
+        });
     },
     getEstablishment({ commit, state }, { id }) {
       commit(types.ESTABLISHMENT_RETRIEVE, id);
@@ -38,21 +41,33 @@ export default {
 
           return commit(types.ESTABLISHMENT_RECIEVE, response.data);
         })
-        .catch(() => router.push('/'));
+        .catch((error) => {
+          commit(types.ESTABLISHMENT_ERROR, error);
+        });
+    },
+    clearError({ commit }) {
+      commit(types.ESTABLISHMENT_ERROR, null);
     },
   },
 
   mutations: {
     [types.ESTABLISHMENT_SEARCH](state, query) {
+      state.error = null;
       state.query = query;
     },
 
     [types.ESTABLISHMENT_RETRIEVE](state, query) {
+      state.error = null;
       state.query = query;
     },
 
     [types.ESTABLISHMENT_RECIEVE](state, establishment) {
+      state.error = null;
       state.data = establishment;
+    },
+
+    [types.ESTABLISHMENT_ERROR](state, error) {
+      state.error = error;
     },
   },
 };

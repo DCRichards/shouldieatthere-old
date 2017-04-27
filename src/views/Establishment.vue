@@ -6,6 +6,11 @@
       <h1 :class="'u-badge u-badge-' + ratingColor">Hygiene Rating: {{ rating }}</h1>
       <h1>{{ ratingMessage }}</h1>
     </div>
+    <div v-if="this.$store.state.establishment.error" class="c-establishment__error">
+      <h1>Oops ;-(</h1>
+      <h3>We couldn't find a rating... <i>no food for us.</i></h3>
+      <router-link to="/">&larr; Try somewhere else</router-link>
+    </div> 
   </div>
 </template>
 
@@ -100,6 +105,9 @@ export default {
 
     this.$store.dispatch('getEstablishment', { id: this.$route.params.id });
   },
+  destroyed() {
+    this.$store.dispatch('clearError');
+  },
 };
 </script>
 
@@ -127,11 +135,21 @@ h4 {
   width: 100%;
 }
 
-.c-establishment__content {
+.c-establishment__content, .c-establishment__error {
   display: table-cell;
   padding: 10px;
   text-align: center;
   vertical-align: middle;
+}
+
+.c-establishment__error {
+  a {
+    text-decoration: none;
+  }
+
+  h3 {
+    margin-bottom: 30px;
+  }
 }
 
 .u-badge {

@@ -6,6 +6,7 @@
       <h1 class="u-inline">in</h1>
       <input class="c-input-text" v-model="location" v-on:keyup.enter="submit" type="text" :size="location.length || 15" placeholder="Portsmouth" id="location"/>
       <h1 class="u-inline">?</h1>
+      <h3 class="c-index__error-message u-color-red" v-if="this.$store.state.establishment.error">Hm, we couldn't find any ratings for {{ this.$store.state.establishment.query }}...</h3>
     </div>
   </div>
 </template>
@@ -21,8 +22,7 @@ export default {
 
   methods: {
     submit() {
-      const name = this.name;
-      const location = this.location;
+      const { name, location } = this;
 
       this.$store.dispatch('findEstablishments', { name, location });
     },
@@ -55,5 +55,9 @@ export default {
   @media screen and (max-width: $break-sm) {
     font-size: 24px;
   }
+}
+
+.c-index__error-message {
+  margin-top: 35px;
 }
 </style>
