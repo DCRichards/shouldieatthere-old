@@ -5,6 +5,8 @@
       <h4><a :href="map">{{ address }}</a></h4>
       <h1 :class="'u-badge u-badge-' + ratingColor">Hygiene Rating: {{ rating }}</h1>
       <h1>{{ ratingMessage }}</h1>
+      <br />
+      <router-link to="/">&larr; Check somewhere else</router-link>
     </div>
     <div v-if="this.$store.state.establishment.error" class="c-establishment__error">
       <h1>Oops ;-(</h1>
