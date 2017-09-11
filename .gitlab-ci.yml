@@ -1,0 +1,27 @@
+image: registry.gitlab.com/citygro/docker-and-compose
+
+services:
+  - docker:dind
+
+stages:
+  - test
+  - build
+
+variables:
+  REGISTRY_URL: registry.gitlab.com/shouldieatthere/web
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+
+test:
+  stage: test
+  script:
+    - docker-compose build
+
+build:
+  stage: build
+  script:
+    - docker build --pull -t $REGISTRY_URL:$CI_BUILD_TAG .
+    - docker push $REGISTRY_URL:$CI_BUILD_TAG
+  only:
+    - tags
